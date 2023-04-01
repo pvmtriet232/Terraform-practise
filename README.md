@@ -1,0 +1,1 @@
+This repo is use for practising terraform
