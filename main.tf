@@ -2,22 +2,21 @@ terraform {
   required_providers {
     docker = {
       source  = "kreuzwerker/docker"
-      version = "~> 3.0.1"
+      version = "~> 2.15.0"
     }
   }
 }
 
 provider "docker" {}
 
-resource "docker_image" "kiada" {
-  name         = "pvmtriet233/kiada:0.2"
+resource "docker_image" "nginx" {
+  name         = "nginx:latest"
   keep_locally = false
 }
 
-resource "docker_container" "kiada" {
-  image = docker_image.kiada.image_id
+resource "docker_container" "nginx" {
+  image = docker_image.nginx.latest
   name  = "tutorial"
-
   ports {
     internal = 80
     external = 8000
